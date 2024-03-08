@@ -1,7 +1,7 @@
 
 pipeline {
    tools {
-        maven 'Maven3'
+        maven 'maven3'
     }
     agent any
     environment {
@@ -32,7 +32,7 @@ pipeline {
     stage('Pushing to ECR') {
      steps{  
          script {
-                sh 'aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 767397913675.dkr.ecr.ap-southeast-1.amazonaws.com'
+                sh 'aws ecr get-login-password --region ap-southeast-1 | docker login --username AWS --password-stdin 767397913675.dkr.ecr.ap-southeast-1.amazonaws.com'
                 sh 'docker push 767397913675.dkr.ecr.ap-southeast-1.amazonaws.com/myecrrepo:latest'
          }
         }
